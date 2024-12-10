@@ -1,0 +1,18 @@
+version: "2"
+sql:
+  - engine: "postgresql"
+    queries: "./queries/user.sql"
+    schema: "./migrations"
+    gen:
+      go:
+        package: "userdb"
+        out: "./dbInterfaces/userdb"
+        sql_package: "pgx/v5"
+  - engine: "postgresql"
+    queries: "./queries/note.sql"
+    schema: "./migrations"
+    gen:
+      go:
+        package: "notedb"
+        out: "./dbInterfaces/notedb"
+        sql_package: "pgx/v5"
